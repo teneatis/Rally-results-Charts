@@ -1,6 +1,6 @@
 # 📊 2026 Rally Performance Analytics Gallery
 
-This repository is a visual data gallery dedicated to the **2026 Rally Season** (WRC, ERC, and more). In Rallying, performance is measured in two distinct ways: individual **Stage Pace** (speed on a specific road section) and **Overall Classification** (the cumulative time across the entire event).
+This repository is a visual data gallery dedicated to the **2026 Rally Season**. Rallying is a unique sport where performance is measured in two distinct ways: individual **Stage Pace** (speed on a specific road section) and **Overall Classification** (the cumulative time across the entire event).
 
 This project translates complex timing data into intuitive competitive analytics using **Python** and **Seaborn**.
 
@@ -21,17 +21,17 @@ To help you navigate the gallery, here is an explanation of the analytical tools
 ![Violin Plot](https://github.com/teneatis/Rally-results-Charts/blob/main/WRC/01_Rally_MonteCarlo_2026/01_Rally_MonteCarlo_2026_SS5_Violin.png?raw=true)
 
 * **What it shows:** The distribution of times for Category RC1, RC2, and RC3 within a single stage.
-* **The Scale:** We use **Dynamic Normalization**. The fastest driver in a group is set at **1.0**. A driver at **1.02** was 2% slower than their category winner.
-* **Insight:** A "fat" violin means the field is tightly packed. A "stretched" violin indicates large gaps between the leader and the rest.
+* **The Scale:** 1.0 is the fastest driver in the category. 1.02 means 2% slower pace.
+* **Insight:** A "fat" violin means the field is tightly packed.
 
 #### B. Performance Heatmaps
 
-*Visualizes consistency and raw pace across the entire itinerary.*
+*Visualizes consistency across the itinerary.*
 
 ![Heatmap](https://github.com/teneatis/Rally-results-Charts/blob/main/WRC/01_Rally_MonteCarlo_2026/01_Rally_MonteCarlo_2026_Dashboard.png?raw=true)
 
-* **What it shows:** Every stage's percentage gap (%) from the winner.
-* **Insight:** Dark green rows show consistent, high-level pace. Red cells instantly highlight a puncture, a spin, or a mechanical issue in a specific stage.
+* **What it shows:** Percentage gap (%) from the winner per stage.
+* **Insight:** Instantly reveals consistency or specific time-loss incidents.
 
 ---
 
@@ -39,37 +39,29 @@ To help you navigate the gallery, here is an explanation of the analytical tools
 
 *Focuses on the cumulative battle for the win.*
 
-#### A. Standings Evolution
-
-*The competitive drama of the rally.*
-
-![Evolution](https://github.com/teneatis/Rally-results-Charts/blob/main/WRC/01_Rally_MonteCarlo_2026/01_Rally_MonteCarlo_2026_Dashboard.png?raw=true)
-
-* **What it shows:** The time gap (in seconds) between competitors and the leader as the rally progresses.
-* **Insight:** Crossing lines represent position swaps on the road. A flat line means the driver is matching the leader's pace, while a rising slope indicates time loss.
-
-#### B. Final Event Dispersion
+#### A. Final Event Dispersion (Overall Violin)
 
 *The final "verdict" at the finish line.*
 
 ![Overall Violin](https://github.com/teneatis/Rally-results-Charts/blob/main/WRC/01_Rally_MonteCarlo_2026/01_Rally_MonteCarlo_2026_Overall_Violin.png?raw=true)
 
-* **What it shows:** The performance gaps at the end of the rally for each machinery class.
-* **Insight:** The **Red Diamond** represents the group's mean performance. This reveals if a category was dominated by one driver or if it was a tight battle.
+* **What it shows:** The cumulative performance gaps at the end of the rally.
+* **Interpretation:** The **Red Diamond** represents the group's mean performance. It shows if a category was dominated by one driver or was a tight battle.
 
----
+#### B. Standings Evolution
 
-## 🛠 Methodology
+*The competitive drama of the rally.*
 
-* **Dynamic Normalization:** Comparisons are made strictly within machinery classes (Category RC1, RC2, etc.) to ensure meaningful data.
-* **Smart Zoom:** Chart axes automatically adjust to the data's dispersion, providing high-detail views of close battles.
-* **Master Data:** Every event is backed by a **Master CSV** containing stage positions, overall standings, and penalty evolution.
+![Evolution](https://github.com/teneatis/Rally-results-Charts/blob/main/WRC/01_Rally_MonteCarlo_2026/01_Rally_MonteCarlo_2026_Dashboard.png?raw=true)
+
+* **What it shows:** Time gap from the leader as the rally progresses.
+* **Insight:** Crossing lines represent position swaps.
 
 ---
 
 ## 📁 Directory Structure
 
-* `/[Series]/[Rally_Name]/` -> Visual Gallery (PNG Plots)
+* `/gallery/[Series]/[Rally_Name]/` -> Visual Gallery (PNG Plots)
 * `/data/[Series]/[Rally_Name]/` -> Master Data (Timing & Positions CSV) *in a future version*
 
 ---
