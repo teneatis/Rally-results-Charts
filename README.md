@@ -1,6 +1,6 @@
 # 📊 Rally Performance Analytics (v2.3)
 
-A professional-grade technical framework for the extraction, processing, and multi-dimensional visualization of rally timing data. This system automates data scraping from **eWRC-results** and **Rally-Base**, delivering high-resolution analytics for sporting evaluation and driver performance auditing.
+A technical framework for the extraction, processing, and multi-dimensional visualization of rally timing data. The system processes stage result data to generate high-resolution analytics for performance evaluation and driver auditing.
 
 ---
 
@@ -46,18 +46,6 @@ Violin plots provide a statistical "X-ray" of the field's competitiveness and at
 | Overall Event Dispersion | Stage Specific Density (Safari Power Stage) |
 | :--- | :--- |
 | ![Violin Overall](WRC/01_Rally_MonteCarlo_2026/Violin_Overall.png) | ![Violin Power Stage Safari](WRC/03_Safari_2026/Violin_SS20.png) |
-
----
-
-### 4. Granular Component Analysis (Subfolder: `heatmaps_evolution`)
-Dedicated charts focusing on isolated metrics for driver coaching and telemetry auditing.
-
-* **Pace Evolution:** Visualizes the raw percentage gap consistency over the entire itinerary.
-* **Self Evolution:** Tracks a driver's own improvement across the event, isolated from external benchmarks, used primarily for internal performance auditing.
-
-| Pace Evolution RC1 | Self Evolution RC2 | Pace Evolution RC3 |
-| :--- | :--- | :--- |
-| ![Pace RC1](WRC/01_Rally_MonteCarlo_2026/heatmaps_evolution/Pace_Evolution_RC1.png) | ![Self RC2](WRC/01_Rally_MonteCarlo_2026/heatmaps_evolution/Pace_Evolution_RC2.png) | ![Pace RC3](WRC/01_Rally_MonteCarlo_2026/heatmaps_evolution/Pace_Evolution_RC3.png) |
 
 ---
 
