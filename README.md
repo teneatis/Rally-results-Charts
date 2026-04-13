@@ -1,67 +1,129 @@
-# 📊 Rally Performance Analytics (v2.3)
+# 📊 Rally Performance Analytics (v2.5)
 
-A technical framework for the extraction, processing, and multi-dimensional visualization of rally timing data. The system processes stage result data to generate high-resolution analytics for performance evaluation and driver auditing.
+[![Rally Charts](https://img.shields.io/badge/Rally-Analytics-blue)]()
+[![Version](https://img.shields.io/badge/version-2.5-green)]()
+[![License](https://img.shields.io/badge/License-MIT-yellow)]()
 
----
-
-## 🔍 Analytical Methodology & Interpretations
-
-### 1. Performance Dashboards & Heatmaps (% Gap)
-The Dashboard is the primary tool for evaluating stage-by-stage competitiveness. It calculates the percentage time delta between each driver and the **Class Leader** (the fastest driver within the selected group).
-
-* **Pace Heatmap (Upper Plot):** A grid-based visualization of efficiency.
-    * **Dark Green (0.0% - 1.5%):** Elite pace, matching or pressuring the class leader.
-    * **Yellow/Orange:** Moderate pace deviation.
-    * **Red (>10.0%):** Significant time loss, mechanical failure, or road incident.
-* **Classification Evolution (Lower Plot):** Tracks the cumulative time gap (in seconds) from the class leader throughout the event.
-    * **Flat Line:** Pace parity with the leader.
-    * **Downward Slope:** Time loss accumulation.
-    * **Lines Crossing:** Change in the leaderboard positions.
-
-| Category RC1 Analytics | Category RC2 Analytics | Category RC3 Analytics |
-| :--- | :--- | :--- |
-| ![Dashboard RC1](WRC/03_Safari_2026/Dashboard_Grp_RC1.png) | ![Dashboard RC2](WRC/03_Safari_2026/Dashboard_Grp_RC2.png) | ![Dashboard RC3](WRC/03_Safari_2026/Dashboard_Grp_RC3.png) |
+A technical framework for extraction, processing, and multi-dimensional visualization of rally timing data.
 
 ---
 
-### 2. Efficiency Index (Pace Improvement)
-This specialized analysis evaluates a driver's adaptation during repeated special stages (loops). It measures the change in a driver's **Pace Index** relative to the category benchmark.
-
-* **Green (Negative Value):** Indicates "Positive Efficiency." The driver successfully closed the gap to the class leader compared to the previous pass.
-* **Purple (Positive Value):** Indicates "Performance Regression." The driver lost ground relative to the benchmark, potentially due to tire wear, road degradation, or lack of adaptation.
-
-| RC1 Efficiency Index | RC2 Efficiency Index |
-| :--- | :--- |
-| ![Efficiency RC1](WRC/03_Safari_2026/Efficiency_RC1.png) | ![Efficiency RC2](WRC/01_Rally_MonteCarlo_2026/Efficiency_RC2.png) |
-
----
-
-### 3. Performance Density (Violin Plots)
-Violin plots provide a statistical "X-ray" of the field's competitiveness and attrition.
-
-* **Width (The Belly):** Represents driver density. A wide belly indicates a high concentration of drivers achieving nearly identical times.
-* **Vertical Extension:** Indicates the spread/dispersion of the field. A "long" violin suggests significant time gaps between competitors (common in endurance rallies like Safari).
-* **Internal Sticks:** Mark individual driver positions within the distribution.
-
-| Overall Event Dispersion | Stage Specific Density (Safari Power Stage) |
-| :--- | :--- |
-| ![Violin Overall](WRC/01_Rally_MonteCarlo_2026/Violin_Overall.png) | ![Violin Power Stage Safari](WRC/03_Safari_2026/Violin_SS20.png) |
+## 📖 Table of Contents
+- [Rallies Covered](#rallies-covered)
+- [Chart Examples (Croatia 2026)](#chart-examples-croatia-2026)
+  - [Position Battles (Bump Charts)](#position-battles-bump-charts)
+  - [Performance Dashboards](#performance-dashboards)
+  - [Stage Repeats Analysis](#stage-repeats-analysis)
+  - [Performance Density (Violin Plots)](#performance-density-violin-plots)
+  - [Pace Evolution](#pace-evolution)
+  - [Self Evolution](#self-evolution)
+- [Color Coding Guide](#color-coding-guide)
 
 ---
 
-### 4. Granular Component Analysis (Subfolder: `heatmaps_evolution`)
-Dedicated charts focusing on isolated metrics for driver coaching and telemetry auditing.
+## 🏁 Rallies Covered
 
-* **Pace Evolution:** Visualizes the raw percentage gap consistency over the entire itinerary to monitor long-term performance trends.
-* **Self Evolution:** Tracks a driver's own improvement across the event by comparing repeat passes of the same stages.
-    * **Negative Values (Green):** Represent a "Learning Curve" or improved pace on the second pass.
-    * **Positive Values (Red):** Indicate a decrease in speed, often due to road degradation, technical issues, or tactical tire management.
+| Series | Rallies |
+|--------|---------|
+| **WRC** | Monte Carlo 2026 / Sweden 2026 / Safari 2026 / Croatia 2026 |
+| **Greek** | Egio / Lamias / Olympiakos / Rally Attikis 2026 |
 
-| Pace Evolution RC1 | Self Evolution RC1 | Self Evolution RC2 |
-| :--- | :--- | :--- |
-| ![Pace RC1](WRC/01_Rally_MonteCarlo_2026/heatmaps_evolution/Pace_Evolution_RC1.png) | ![Self RC1](WRC/01_Rally_MonteCarlo_2026/heatmaps_evolution/Self_Evolution_RC1.png) | ![Self RC2](WRC/01_Rally_MonteCarlo_2026/heatmaps_evolution/Self_Evolution_RC2.png) |
+*Browse the `WRC/` and `Greek/` folders to see all rallies – new ones added regularly.*
 
-## ⚙️ Technical Architecture (v2.x Standards)
+---
 
-### Data Normalization
-* **Fixed Color Scales:** Normalization (0-10% for Heatmaps, -5/+5 for Efficiency) ensures that a "Deep Green" on a Tarmac rally means the same competitive level as on a Gravel rally.
+## 🖼️ Chart Examples (Croatia 2026)
+
+All examples below are from `WRC/04_Croatia/`
+
+---
+
+### Position Battles (Bump Charts)
+
+Shows how driver positions evolve stage by stage. Each line = a driver. Lines crossing = position changes.
+
+**Top 20 Overall**
+![Top 20 Overall](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/BumpChart_Top20_Overall.png)
+
+**RC2 Top 10 Battle**
+![RC2 Top 10](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/BumpChart_RC2_Top10_Battle.png)
+
+---
+
+### Performance Dashboards
+
+Heatmap (% gap to class leader) + classification evolution (cumulative seconds).
+
+| RC1 Dashboard | RC2 Dashboard |
+|---------------|---------------|
+| ![RC1 Dashboard](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Dashboard_RC1.png) | ![RC2 Dashboard](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Dashboard_RC2.png) |
+
+| RC3 Dashboard | RC4 Dashboard |
+|---------------|---------------|
+| ![RC3 Dashboard](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Dashboard_RC3.png) | ![RC4 Dashboard](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Dashboard_RC4.png) |
+
+**Top 15 Overall Dashboard**
+![Top 15 Overall](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Dashboard_Top15_Overall.png)
+
+> **Note:** If any dashboard image does not load, please refresh or check that the file exists in the repository. GitHub's raw content may sometimes rate-limit large images.
+
+---
+
+### Stage Repeats Analysis
+
+Compares first vs second pass of same stage.
+
+![Repeats - Alan, Senj](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Repeats_Alan%20-%20Senj.png)
+
+![Repeats - Beram, Cerovlje](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Repeats_Beram%20-%20Cerovlje.png)
+
+---
+
+### Performance Density (Violin Plots)
+
+Statistical view of field competitiveness. Wide belly = tight competition. Long tail = large gaps.
+
+| RC1 | RC4 | Overall |
+|-----|-----|---------|
+| ![RC1 Violin](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/ViolinMatrix_RC1.png) | ![RC4 Violin](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/ViolinMatrix_RC4.png) | ![Overall Violin](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/Violin_Overall.png) |
+
+---
+
+### Pace Evolution
+
+Tracks percentage gap consistency across all stages.
+
+**RC1 - Alan, Senj**
+![Pace Evolution RC1](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/heatmaps_evolution/Pace_Ev_Alan%20-%20Senj_RC1.png)
+
+**RC3 - Beram, Cerovlje**
+![Pace Evolution RC3](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/heatmaps_evolution/Pace_Ev_Beram%20-%20Cerovlje_RC3.png)
+
+---
+
+### Self Evolution
+
+Measures driver's own improvement across repeated stages. Negative (green) = faster on second pass (learning curve).
+
+**RC1 - Beram, Cerovlje**
+![Self Evolution RC1](https://raw.githubusercontent.com/teneatis/Rally-results-Charts/refs/heads/main/WRC/04_Croatia/heatmaps_evolution/Self_Evolution_Beram%20-%20Cerovlje_RC1.png)
+
+---
+
+## 🎨 Color Coding Guide
+
+| Color | Meaning | Range |
+|-------|---------|-------|
+| 🟢 Dark Green | Elite pace | 0.0% – 1.5% gap |
+| 🟡 Yellow/Orange | Moderate deviation | 1.5% – 6.0% |
+| 🔴 Red | Significant loss | > 10.0% |
+| 🟣 Purple | Performance regression | Positive value |
+| 🟢 Green (Efficiency) | Learning curve | Negative value |
+
+---
+
+## 📜 License
+
+MIT License – see repository for details.
+
+**Version 2.5** | Updated April 2026
