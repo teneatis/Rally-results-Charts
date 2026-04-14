@@ -220,4 +220,4 @@ Crew matching uses **participation numbers** as unique identifiers — unambiguo
 
 ## 📜 License
 
-MIT License — see repository for details.
+[MIT License](LICENSE)
